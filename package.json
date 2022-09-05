@@ -5,7 +5,7 @@
   "repository": "3DJakob/react-presentable",
   "license": "MIT",
   "files": [
-    "index.js",
+    "index.tsx",
     "Slide.tsx"
   ],
   "dependencies": {

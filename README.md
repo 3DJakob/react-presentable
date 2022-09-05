@@ -1,6 +1,10 @@
 # React Presentable
 
-React Slides is a module to create slideshows inside React.
+React Presentable is a lightweight zero-dependency module to create slideshows inside React. The slides can render whatever react code you like.
+
+Use the arrow keys or left mouse button to navigate between slides.
+
+![](demo.gif)
 
 ## Installation
 
@@ -32,3 +36,25 @@ return (
 
 ## Props
 
+### `children`
+
+- optional
+- type: `ReactNode`
+
+The slides in the presentation.
+
+### `style`
+
+- optional
+- type: `CSSProperties`
+
+Override styling of the presentation.
+
+### `theme`
+
+- optional
+- type: `PresentationTheme`
+
+The theme of your presentation.
+backgroundColor?: string
+textColor?: string

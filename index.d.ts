@@ -19,6 +19,8 @@ declare interface Props {
 
   /**
    * The theme of your presentation.
+   * backgroundColor?: string
+   * textColor?: string
   */
   theme?: PresentationTheme
 

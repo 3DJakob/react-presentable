@@ -4,7 +4,10 @@ import Slide from './components/Slide'
 const App: React.FC = () => {
   return (
     <div className='App'>
-      <Presentation style={{ width: '100vw', height: '100vh' }}>
+      <Presentation
+        style={{ width: '100vw', height: '100vh' }}
+        theme={{ backgroundColor: 'violet', textColor: '#fff' }}
+      >
         <Slide>
           <h1>Slide 1</h1>
         </Slide>

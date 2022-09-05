@@ -1,12 +1,18 @@
 import React from 'react'
 import Resizer from './Resizer'
 
+export interface PresentationTheme {
+  backgroundColor?: string
+  textColor?: string
+}
+
 export interface PresentationProps {
   children: React.ReactNode
   style?: React.CSSProperties
+  theme?: PresentationTheme
 }
 
-const Presentation: React.FC<PresentationProps> = ({ children, style }) => {
+const Presentation: React.FC<PresentationProps> = ({ children, style, theme }) => {
   const sliderRef = React.createRef<HTMLDivElement>()
   const [dimesions, setDimensions] = React.useState({ width: 0, height: 0 })
   const [currentSlide, setCurrentSlide] = React.useState(0)
@@ -49,10 +55,19 @@ const Presentation: React.FC<PresentationProps> = ({ children, style }) => {
     }
   }, [numberOfSlides])
 
-  const Slides = React.Children.map(children, (child) => <div style={{ ...dimesions, overflow: 'hidden' }}>{child}</div>)
+  const SlideStyle: React.CSSProperties = {
+    backgroundColor: theme?.backgroundColor,
+    color: theme?.textColor,
+    overflow: 'hidden',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+
+  const Slides = React.Children.map(children, (child) => <div style={{ ...dimesions, ...SlideStyle }}>{child}</div>)
 
   return (
-    <Resizer onLayout={setDimensions} style={{ ...style, backgroundColor: 'blue', overflow: 'hidden' }}>
+    <Resizer onLayout={setDimensions} style={{ ...style, overflow: 'hidden' }}>
       <div
         style={{
           display: 'flex',

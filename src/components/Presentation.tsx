@@ -32,7 +32,6 @@ const Presentation: React.FC<PresentationProps> = ({ children, style }) => {
       }
     }
 
-    // key listener
     const handleArrow = (e: KeyboardEvent): void => {
       if (e.key === 'ArrowRight') {
         incrementSlide()
@@ -50,7 +49,7 @@ const Presentation: React.FC<PresentationProps> = ({ children, style }) => {
     }
   }, [numberOfSlides])
 
-  const Slides = React.Children.map(children, (child) => <div style={{ ...dimesions, overflow: 'hidden' }}>{child} <p>{dimesions.width}</p></div>)
+  const Slides = React.Children.map(children, (child) => <div style={{ ...dimesions, overflow: 'hidden' }}>{child}</div>)
 
   return (
     <Resizer onLayout={setDimensions} style={{ ...style, backgroundColor: 'blue', overflow: 'hidden' }}>

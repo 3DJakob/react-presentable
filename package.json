@@ -1,36 +1,21 @@
 {
   "name": "react-presentable",
-  "version": "0.0.2",
+  "version": "0.0.10",
   "description": "This is a library to create slideshows using react",
   "repository": "3DJakob/react-presentable",
   "license": "MIT",
   "files": [
-    "index.tsx",
-    "Slide.tsx",
-    "Resizer.tsx"
+    "index.js",
+    "index.d.ts",
+    "Slide.js",
+    "Slide.d.ts",
+    "Resizer.js"
   ],
   "scripts": {
     "test": "ts-standard"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
+    "@types/react": "^18.0.18",
     "ts-standard": "^11.0.0"
   },
   "peerDependencies": {

@@ -21,8 +21,9 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "Slide.tsx",
-    "Resizer.tsx",
-    "index.tsx"
+    "Slide.js",
+    "Resizer.js",
+    "index.js",
+    "index.d.ts"
 ]
 }

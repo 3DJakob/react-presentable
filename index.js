@@ -1,44 +1,34 @@
 import React from 'react'
 import Resizer from './Resizer'
+import Slide from './Slide'
 
-export interface PresentationTheme {
-  backgroundColor?: string
-  textColor?: string
-}
-
-export interface PresentationProps {
-  children: React.ReactNode
-  style?: React.CSSProperties
-  theme?: PresentationTheme
-}
-
-const Presentation: React.FC<PresentationProps> = ({ children, style, theme }) => {
-  const sliderRef = React.createRef<HTMLDivElement>()
+const Presentation = ({ children, style, theme }) => {
+  const sliderRef = React.createRef()
   const [dimensions, setDimensions] = React.useState({ width: 0, height: 0 })
   const [currentSlide, setCurrentSlide] = React.useState(0)
   const numberOfSlides = React.Children.count(children)
 
   const currentSlideRef = React.useRef(currentSlide)
 
-  const updateCurrentSlide = (data: number): void => {
+  const updateCurrentSlide = (data) => {
     currentSlideRef.current = data
     setCurrentSlide(data)
   }
 
   React.useEffect(() => {
-    const incrementSlide = (): void => {
+    const incrementSlide = () => {
       if (currentSlideRef.current < numberOfSlides - 1) {
         updateCurrentSlide(currentSlideRef.current + 1)
       }
     }
 
-    const decrementSlide = (): void => {
+    const decrementSlide = () => {
       if (currentSlideRef.current > 0) {
         updateCurrentSlide(currentSlideRef.current - 1)
       }
     }
 
-    const handleArrow = (e: KeyboardEvent): void => {
+    const handleArrow = (e) => {
       if (e.key === 'ArrowRight') {
         incrementSlide()
       }
@@ -49,13 +39,13 @@ const Presentation: React.FC<PresentationProps> = ({ children, style, theme }) =
     window.addEventListener('keydown', handleArrow)
     window.addEventListener('mouseClick', incrementSlide)
 
-    return (): void => {
+    return () => {
       window.removeEventListener('keydown', handleArrow)
       window.removeEventListener('mouseClick', incrementSlide)
     }
   }, [numberOfSlides])
 
-  const SlideStyle: React.CSSProperties = {
+  const SlideStyle = {
     backgroundColor: theme?.backgroundColor,
     color: theme?.textColor,
     overflow: 'hidden',
@@ -64,7 +54,7 @@ const Presentation: React.FC<PresentationProps> = ({ children, style, theme }) =
     justifyContent: 'center'
   }
 
-  const Slides = React.Children.map(children, (child) => <div style={{ ...dimensions, ...SlideStyle }}>{child}</div>)
+  const Slides = React.Children.map(children, (child) => React.createElement('div', { style: { ...dimensions, ...SlideStyle } }, child))
 
   return (
     React.createElement(
@@ -91,4 +81,5 @@ const Presentation: React.FC<PresentationProps> = ({ children, style, theme }) =
   )
 }
 
+export { Slide }
 export default Presentation

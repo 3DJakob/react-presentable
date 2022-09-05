@@ -1,16 +1,10 @@
 import React from 'react'
 
-export interface ResizerProps {
-  children?: React.ReactNode
-  style?: React.CSSProperties
-  onLayout: (size: {height: number, width: number}) => void
-}
-
-const Resizer: React.FC<ResizerProps> = ({ children, style, onLayout }) => {
-  const divRef = React.useRef<HTMLDivElement>(null)
+const Resizer = ({ children, style, onLayout }) => {
+  const divRef = React.useRef(null)
 
   React.useEffect(() => {
-    const updateDimensions = (): void => {
+    const updateDimensions = () => {
       if (divRef.current != null) {
         const height = divRef.current.offsetHeight
         const width = divRef.current.offsetWidth
@@ -22,7 +16,7 @@ const Resizer: React.FC<ResizerProps> = ({ children, style, onLayout }) => {
 
     window.addEventListener('resize', updateDimensions)
 
-    return (): void => {
+    return () => {
       window.removeEventListener('resize', updateDimensions)
     }
   }, [onLayout])

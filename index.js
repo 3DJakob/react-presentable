@@ -46,7 +46,6 @@ const Presentation = ({ children, style, theme }) => {
   }, [numberOfSlides])
 
   const SlideStyle = {
-    backgroundColor: theme?.backgroundColor,
     color: theme?.textColor,
     overflow: 'hidden',
     display: 'flex',
@@ -61,7 +60,7 @@ const Presentation = ({ children, style, theme }) => {
       Resizer,
       {
         onLayout: (size) => setDimensions(size),
-        style: { ...style, overflow: 'hidden' }
+        style: { ...style, overflow: 'hidden', backgroundColor: theme?.backgroundColor }
       },
       React.createElement(
         'div',

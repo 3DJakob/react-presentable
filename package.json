@@ -1,5 +1,5 @@
 {
-  "name": "react-slides",
+  "name": "react-presentable",
   "version": "0.0.1",
   "description": "This is a library to create slideshows using react",
   "repository": "3DJakob/react-slides",
@@ -8,7 +8,6 @@
     "index.js",
     "Slide.tsx"
   ],
-  "private": true,
   "dependencies": {
   },
   "scripts": {

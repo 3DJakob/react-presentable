@@ -1,12 +1,16 @@
+import React from 'react'
+
 export interface SlideProps {
   children: React.ReactNode
 }
 
 const Slide: React.FC<SlideProps> = ({ children }) => {
   return (
-    <div>
-      {children}
-    </div>
+    React.createElement(
+      'div',
+      {},
+      children
+    )
   )
 }
 

@@ -14,7 +14,7 @@ export interface PresentationProps {
 
 const Presentation: React.FC<PresentationProps> = ({ children, style, theme }) => {
   const sliderRef = React.createRef<HTMLDivElement>()
-  const [dimesions, setDimensions] = React.useState({ width: 0, height: 0 })
+  const [dimensions, setDimensions] = React.useState({ width: 0, height: 0 })
   const [currentSlide, setCurrentSlide] = React.useState(0)
   const numberOfSlides = React.Children.count(children)
 
@@ -64,22 +64,30 @@ const Presentation: React.FC<PresentationProps> = ({ children, style, theme }) =
     justifyContent: 'center'
   }
 
-  const Slides = React.Children.map(children, (child) => <div style={{ ...dimesions, ...SlideStyle }}>{child}</div>)
+  const Slides = React.Children.map(children, (child) => <div style={{ ...dimensions, ...SlideStyle }}>{child}</div>)
 
   return (
-    <Resizer onLayout={setDimensions} style={{ ...style, overflow: 'hidden' }}>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          width: numberOfSlides * dimesions.width,
-          transition: '200ms transform',
-          transform: `translateX(-${currentSlide * dimesions.width}px)`
-        }} ref={sliderRef}
-      >
-        {Slides}
-      </div>
-    </Resizer>
+    React.createElement(
+      Resizer,
+      {
+        onLayout: (size) => setDimensions(size),
+        style: { ...style, overflow: 'hidden' }
+      },
+      React.createElement(
+        'div',
+        {
+          ref: sliderRef,
+          style: {
+            display: 'flex',
+            flexDirection: 'row',
+            width: numberOfSlides * dimensions.width,
+            transition: '200ms transform',
+            transform: `translateX(-${currentSlide * dimensions.width}px)`
+          }
+        },
+        Slides
+      )
+    )
   )
 }
 

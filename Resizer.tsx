@@ -28,9 +28,11 @@ const Resizer: React.FC<ResizerProps> = ({ children, style, onLayout }) => {
   }, [onLayout])
 
   return (
-    <div ref={divRef} style={style}>
-      {children}
-    </div>
+    React.createElement(
+      'div',
+      { ref: divRef, style },
+      children
+    )
   )
 }
 

@@ -5,13 +5,13 @@ React Slides is a module to create slideshows inside React.
 ## Installation
 
 ```sh
-npm install --save react-slides
+npm install --save react-presentable
 ```
 
 ## Usage
 
 ```js
-import Presentation, { Slide } from 'react-slides'
+import Presentation, { Slide } from 'react-presentable'
 
 // ...
 

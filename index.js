@@ -15,6 +15,12 @@ const Presentation = ({ children, style, theme }) => {
     setCurrentSlide(data)
   }
 
+  const updateDimensions = (data) => {
+    if (data.width !== dimensions.width || data.height !== dimensions.height) {
+      setDimensions(data)
+    }
+  }
+
   React.useEffect(() => {
     const incrementSlide = () => {
       if (currentSlideRef.current < numberOfSlides - 1) {
@@ -59,7 +65,7 @@ const Presentation = ({ children, style, theme }) => {
     React.createElement(
       Resizer,
       {
-        onLayout: (size) => setDimensions(size),
+        onLayout: (size) => updateDimensions(size),
         style: { ...style, overflow: 'hidden', backgroundColor: theme?.backgroundColor }
       },
       React.createElement(

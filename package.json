@@ -2,7 +2,7 @@
   "name": "react-presentable",
   "version": "0.0.1",
   "description": "This is a library to create slideshows using react",
-  "repository": "3DJakob/react-slides",
+  "repository": "3DJakob/react-presentable",
   "license": "MIT",
   "files": [
     "index.js",

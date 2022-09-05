@@ -63,7 +63,6 @@ const Presentation: React.FC<PresentationProps> = ({ children, style }) => {
         }} ref={sliderRef}
       >
         {Slides}
-        {/* {children} */}
       </div>
     </Resizer>
   )

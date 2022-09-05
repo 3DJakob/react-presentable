@@ -6,10 +6,9 @@
   "license": "MIT",
   "files": [
     "index.tsx",
-    "Slide.tsx"
+    "Slide.tsx",
+    "Resizer.tsx"
   ],
-  "dependencies": {
-  },
   "scripts": {
     "test": "ts-standard"
   },

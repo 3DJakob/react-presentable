@@ -58,3 +58,10 @@ Override styling of the presentation.
 The theme of your presentation.
 backgroundColor?: string
 textColor?: string
+
+### `className`
+
+- optional
+- type: `CSSProperties`
+
+The CSS class of the presentation element

@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Slide = ({ children }) => {
+const Slide = ({ children, style, className }) => {
   return (
     React.createElement(
       'div',
-      {},
+      { style, className },
       children
     )
   )

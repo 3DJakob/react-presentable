@@ -24,6 +24,11 @@ declare interface Props {
   */
   theme?: PresentationTheme
 
+  /**
+   * The CSS class of the presentation element
+  */
+  className?: CSSProperties
+
 }
 
 declare const Presentation: React.FC<Props>

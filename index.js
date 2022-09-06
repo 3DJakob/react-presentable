@@ -2,7 +2,7 @@ import React from 'react'
 import Resizer from './Resizer'
 import Slide from './Slide'
 
-const Presentation = ({ children, style, theme }) => {
+const Presentation = ({ children, style, className, theme }) => {
   const sliderRef = React.createRef()
   const [dimensions, setDimensions] = React.useState({ width: 0, height: 0 })
   const [currentSlide, setCurrentSlide] = React.useState(0)
@@ -66,6 +66,7 @@ const Presentation = ({ children, style, theme }) => {
       Resizer,
       {
         onLayout: (size) => updateDimensions(size),
+        className: className,
         style: { ...style, overflow: 'hidden', backgroundColor: theme?.backgroundColor }
       },
       React.createElement(

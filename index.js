@@ -55,8 +55,8 @@ const Presentation = ({ children, style, className, theme }) => {
     color: theme?.textColor,
     overflow: 'hidden',
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: 'stretch',
+    justifyContent: 'stretch'
   }
 
   const Slides = React.Children.map(children, (child) => React.createElement('div', { style: { ...dimensions, ...SlideStyle } }, child))

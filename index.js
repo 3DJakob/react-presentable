@@ -2,7 +2,7 @@ import React from 'react'
 import Resizer from './Resizer'
 import Slide from './Slide'
 
-const Presentation = ({ children, style, className, theme }) => {
+const Presentation = ({ children, style, className, theme, showProgressBar = true }) => {
   const sliderRef = React.createRef()
   const [dimensions, setDimensions] = React.useState({ width: 0, height: 0 })
   const [currentSlide, setCurrentSlide] = React.useState(0)
@@ -60,6 +60,15 @@ const Presentation = ({ children, style, className, theme }) => {
     textAlign: 'center'
   }
 
+  const ProgressStyle = {
+    position: 'absolute',
+    bottom: '0',
+    backgroundColor: 'rgba(255,255,255,0.5)',
+    width: `${(currentSlide / (numberOfSlides - 1)) * 100}%`,
+    height: 10,
+    transition: 'width 0.2s ease-in-out'
+  }
+
   const Slides = React.Children.map(children, (child) => React.createElement('div', { style: { ...dimensions, ...SlideStyle } }, child))
 
   return (
@@ -67,9 +76,13 @@ const Presentation = ({ children, style, className, theme }) => {
       Resizer,
       {
         onLayout: (size) => updateDimensions(size),
-        className: className,
+        className,
         style: { ...style, overflow: 'hidden', backgroundColor: theme?.backgroundColor }
       },
+      showProgressBar && React.createElement(
+        'div',
+        { style: ProgressStyle }
+      ),
       React.createElement(
         'div',
         {

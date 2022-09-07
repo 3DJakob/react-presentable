@@ -25,6 +25,12 @@ declare interface Props {
   theme?: PresentationTheme
 
   /**
+   * Display a animated progress bar or not.
+   * @default true
+  */
+  showProgressBar?: boolean
+
+  /**
    * The CSS class of the presentation element
   */
   className?: CSSProperties

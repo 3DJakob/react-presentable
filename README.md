@@ -59,6 +59,14 @@ The theme of your presentation.
 backgroundColor?: string
 textColor?: string
 
+### `showProgressBar`
+
+- optional
+- type: `boolean`
+- default: `true`
+
+Display a animated progress bar or not.
+
 ### `className`
 
 - optional

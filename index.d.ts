@@ -31,6 +31,12 @@ declare interface Props {
   showProgressBar?: boolean
 
   /**
+   * Display left and right arrows for changing slides.
+   * @default true
+  */
+  showArrows?: boolean
+
+  /**
    * The CSS class of the presentation element
   */
   className?: CSSProperties

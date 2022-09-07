@@ -9,7 +9,8 @@
     "index.d.ts",
     "Slide.js",
     "Slide.d.ts",
-    "Resizer.js"
+    "Resizer.js",
+    "Arrows.js"
   ],
   "scripts": {
     "test": "ts-standard"

@@ -67,6 +67,14 @@ textColor?: string
 
 Display a animated progress bar or not.
 
+### `showArrows`
+
+- optional
+- type: `boolean`
+- default: `true`
+
+Display left and right arrows for changing slides.
+
 ### `className`
 
 - optional

@@ -24,7 +24,7 @@ const Resizer = ({ children, style, onLayout }) => {
   return (
     React.createElement(
       'div',
-      { ref: divRef, style },
+      { ref: divRef, style: { ...style, position: 'relative' } },
       children
     )
   )
